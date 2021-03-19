@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img [src]="imagen" alt="" />
+            <div *ngIf="imagen.includes('daw')">
+                <h1>DAW {{cursoADetallar}}</h1>
+            </div>
+            <div *ngIf="imagen.includes('dam')">
+                <h1>DAM {{cursoADetallar}}</h1>
+            </div>
+            <h3>Conocimientos necesarios</h3>
+            <div *ngFor="let conocimiento of listaConocimientos">
+                {{conocimiento | lower}}
+            </div>
+        </div>
+        <div class="col">
+            <h2>Las asignaturas del ciclo son: </h2>
+            <br>
+            <div class="row">
+                <div *ngFor="let asignatura of asignaturasADetallar" class="col">
+                    <div class="card" style="width: 13.6rem; margin: 5%;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title"><b>{{asignatura.nombre | upper}}</b></h5>
+                            <p>Profesor: {{asignatura.profesor}}</p>
+                            <p>Ciclo: {{asignatura.ciclo}}</p>
+                            <p>Curso: {{asignatura.curso}}</p>
+                            <div class="row">
+                                <div *ngFor="let conocimiento of asignatura.conocimientos" class="col">
+                                    <img src="{{conocimiento.imagen}}" alt="" height="32px" width="32px" />
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" (click)="verDetalle(asignatura)">Ver detalle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

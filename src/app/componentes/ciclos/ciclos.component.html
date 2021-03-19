@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<div class="container">
+    <h2><b>Los ciclos tecnológicos son</b></h2>
+    <div class="row">
+        <div class="col-sm">
+            <h2><b>DAM</b></h2>
+            <table>
+                <div *ngFor="let asinatura of listaAsignaturasDam">
+                    <tr>
+                        <td>{{asinatura.nombre}}</td>
+                    </tr>
+                </div>
+                <tr>
+                <div *ngFor="let curso of listaCiclosDam">
+                    <td>
+                        <div class="card" style="width: 13.6rem;">
+                            <img [src]="curso.imagen" class="card-imagen-configuracion" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{curso.curso}} {{curso.nombre}}</h5>
+                                <button class="btn btn-primary" [routerLink]="['/detalleCiclo']" routerLinkActive="router-link-active" (click)="filtrarAsignaturasDam(curso.curso)">Ver detalle</button>
+                            </div>
+                        </div>
+                    </td>
+                </div>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm">
+            <h2><b>DAW</b></h2>
+            <table>
+                <div *ngFor="let asinatura of listaAsignaturasDaw">
+                    <tr>
+                        <td>{{asinatura.nombre}}</td>
+                    </tr>
+                </div>
+                <tr>
+                    <div *ngFor="let curso of listaCiclosDaw">
+                        <td>
+                            <div class="card" style="width: 13.6rem;">
+                                <img [src]="curso.imagen" class="card-imagen-configuracion" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{curso.curso}} {{curso.nombre}}</h5>
+                                    <button class="btn btn-primary" [routerLink]="['/detalleCiclo']" routerLinkActive="router-link-active" (click)="filtrarAsignaturasDaw(curso.curso)">Ver detalle</button>
+                                </div>
+                            </div>
+                        </td>
+                    </div>
+                    </tr>
+            </table>
+        </div>
+    </div>
+</div>
